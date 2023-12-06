@@ -1,0 +1,8 @@
+body{
+    padding: 10%;
+}
+button{
+    width: max-content;
+    padding-left: 6px;
+    margin: 7px;
+}
