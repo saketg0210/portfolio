@@ -79,6 +79,55 @@
 @media (max-width:680px){
   .project-card{ flex-direction:column; align-items:flex-start; gap:12px; }
   .project-image{ width:100%; height:180px; border-radius:10px; }
+
+  /* Make fonts/links fully visible and tappable on mobile (no hover required) */
+  .project-content { min-width: 0; }
+
+  .project-title{
+    font-size:16px;
+    color:var(--accent, #60a5fa);
+    margin-bottom:6px;
+    word-break:break-word;
+  }
+
+  .project-description{
+    font-size:14px;
+    color:var(--muted, #9fb6d0);
+    line-height:1.45;
+    -webkit-line-clamp:3;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    word-break:break-word;
+  }
+
+  .project-link{
+    display:inline-block;
+    width:100%;
+    text-align:center;
+    padding:10px 12px;
+    font-size:15px;
+    border-radius:8px;
+    opacity:1;              /* ensure visible */
+    transform:none;         /* no hover transform needed */
+    transition:none;        /* keep it static on mobile */
+    box-shadow: 0 8px 22px rgba(59,130,246,0.12);
+    margin-top:8px;
+  }
+
+  .project-card:hover{ transform:none; box-shadow: 0 8px 28px rgba(2,6,23,0.12); }
+
+  /* ensure no overflow from long words/links */
+  .project-card, .project-content, .project-link { min-width: 0; }
+}
+
+/* Additional mobile-leaning breakpoint for very small screens */
+@media (max-width:420px){
+  .project-image{ height:150px; }
+  .project-title{ font-size:15px; }
+  .project-description{ font-size:13px; -webkit-line-clamp:4; }
+  .project-link{ padding:10px; font-size:14px; }
 }
 
 /* entrance animation */

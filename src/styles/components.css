@@ -133,7 +133,6 @@ section {
   text-decoration: underline;
 }
 
-
 /* Image section styling */
 .about-image img {
     width: 280px;
@@ -160,6 +159,90 @@ section {
 .animate-fadeIn {
     opacity: 1 !important;
     transform: translateY(0) !important;
+}
+
+/* Responsive fixes for About section to prevent fonts/content from "floating out" on mobile */
+.about {
+  box-sizing: border-box;
+}
+
+.about-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap; /* allow wrapping instead of overflowing */
+}
+
+.about-image {
+  flex: 0 0 220px;
+  min-width: 0;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.about-content {
+  flex: 1 1 auto;
+  min-width: 0; /* important to allow text to shrink inside flex */
+}
+
+.about-content h2,
+.about-content p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;;
+  }
+  section {
+  padding: 80px 20px;
+  min-height: auto !important;
+  scroll-margin-top: 80px; /* adjust to match your header height */
+}
+
+  .about-image {
+    flex: 0 0 auto;
+    max-width: 200px;
+  }
+
+  .about-image img {
+    max-width: 200px;
+  }
+
+  .about-content {
+    width: 100%;
+  }
+
+  .about-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .about-links a {
+    display: inline-block;
+    white-space: nowrap; /* keep link labels compact */
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* ===== Contact Section ===== */
@@ -255,5 +338,53 @@ section {
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* Ensure Projects section text is fully visible on mobile */
+@media (max-width: 680px) {
+  /* Make section and cards fully opaque (override any entrance/hover opacity) */
+  .projects-section,
+  .projects-grid,
+  .project-card {
+    opacity: 1 !important;
+    -webkit-opacity: 1 !important;
+    min-width: 0;
+  }
+
+  /* Dark-themed text colors for mobile (high contrast on light card bg) */
+  
+  .projects-section .project-description {
+    color: #0b1228 !important; /* dark navy/ink */
+  }
+
+  .projects-grid{
+    color: #0b1228 !important;
+  }
+
+  /* Description styling */
+  .projects-section .project-description {
+    color: rgba(11,18,40,0.9) !important;
+    font-size: 14px;
+    line-height: 1.45;
+    word-break: break-word;
+  }
+
+  /* Make action links/buttons visible and tappable (keep button text white) */
+  .projects-section .project-link {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    box-shadow: 0 8px 22px rgba(59,130,246,0.12);
+    background: linear-gradient(90deg, var(--accent,#60a5fa), #3b82f6);
+    color: #ffffff !important;
+  }
+
+  /* Reduce any accidental overflowing text */
+  .projects-grid,
+  .project-card,
+  .project-content {
+    min-width: 0;
+    overflow: visible;
+  }
 }
 

@@ -5,8 +5,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-content">
-                <p>&copy; {new Date().getFullYear()} Saket Gupta. All rights reserved.</p>
-                <div className="social-links">
+               <div className="social-links">
                     <a href="https://github.com/saketg0210" target="_blank" rel="noopener noreferrer">
                         GitHub
                     </a>
