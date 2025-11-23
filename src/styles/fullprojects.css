@@ -1,0 +1,72 @@
+/* Styles for FullProjectsPage — remove debug styles and ensure visibility */
+.full-projects-page {
+  padding: 40px 20px;
+  background: #fff;
+  color: #000;
+  min-height: 100vh;
+  position: relative;
+  z-index: 50; /* above background overlays but below fixed header (header z-index:100) */
+}
+
+/* Force visibility in case an animation or overlay applied opacity elsewhere */
+.full-projects-page,
+.full-projects-page * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Layout */
+.full-projects-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: block;
+  gap: 24px;
+}
+
+/* Each project target shouldn't be hidden behind the sticky header */
+.full-project-item {
+  margin: 60px 0;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  scroll-margin-top: 90px; /* adjust to header height */
+}
+
+/* Ensure internal links are clickable */
+.full-projects-page a {
+  z-index: 60;
+  position: relative;
+}
+
+/* demo image styling */
+.sample-img img {
+  display: block;
+  width: 100%;
+  max-width: 900px;       /* limit very large images */
+  height: auto;
+  object-fit: cover;      /* preserve aspect and crop if needed */
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 240ms ease, opacity 240ms ease;
+  opacity: 1 !important;  /* ensure visibility if global opacity rules exist */
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* subtle hover effect */
+.sample-img img:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* make images fully responsive on small screens */
+@media (max-width: 768px) {
+  .sample-img {
+    margin: 16px 0;
+    padding: 0 8px;
+  }
+
+  .sample-img img {
+    max-width: 100%;
+    border-radius: 6px;
+  }
+}

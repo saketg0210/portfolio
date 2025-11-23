@@ -1,0 +1,259 @@
+/* ===== Global Styles ===== */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  background-color: #f9f9f9;
+}
+
+section {
+  padding: 80px 20px;
+  min-height: 100vh;
+  scroll-margin-top: 80px; /* adjust to match your header height */
+}
+
+/* ===== Hero Section ===== */
+
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  color: white;
+  min-height: 100vh;
+  text-align: center;
+  padding: 60px 20px;
+  /* background-image moved to .hero-bg */
+}
+
+/* animated background layer (under overlay/content) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1.08);
+  opacity: 0;
+  transition: transform 900ms cubic-bezier(.2,.9,.2,1), opacity 900ms ease-out;
+  z-index: 0;
+}
+
+/* "pop" to final state when visible */
+.hero-bg.bg-pop {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* dark overlay so text is readable (above bg, below content) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1;
+}
+
+/* ensure content sits above overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 700px;
+}
+
+.hero-button {
+  background-color: #ffffff;
+  color: #4facfe;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero-button:hover {
+  background-color: #e6e6e6;
+}
+
+/* ===== About Section ===== */
+.about {
+  background-color: #ffffff;
+  color: #0f5584;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.about-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* mobile friendly */
+}
+
+.about-content span {
+  color: var(--accent, #60a5fa);
+  font-weight: 600;
+}
+
+.about-links a {
+  color: var(--accent, #60a5fa);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.about-links a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+
+/* Image section styling */
+.about-image img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(+70px);
+    transition: all 1s ease-out;
+}
+
+.animate-slideInLeft img {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Text Section */
+.about-content {
+    max-width: 600px;
+}
+
+/* Fade animation already used */
+.animate-fadeIn {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ===== Contact Section ===== */
+.contact {
+  background-color: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  color: #0f5584;
+  margin-bottom: 20px;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact button {
+  padding: 12px 25px;
+  background-color: #4facfe;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+  background-color: #3a9bdc;
+}
+
+/* ===== Scroll Animation ===== */
+.animate-fadeIn {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Initial state for animation */
+section {
+  opacity: 0;
+  transform: translateY(50px);
+}
+/* ===== Scroll Animation ===== */
+
+/* ===== Scroll Animation ===== */
+section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-fadeIn {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ===== Project Section ===== */
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;            /* make entire card clickable */
+  position: relative;
+  z-index: 2;       
+  margin: 4px;         /* ensure it's above background overlays */
+}
+
+.project-card {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
