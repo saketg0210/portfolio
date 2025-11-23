@@ -1,88 +1,115 @@
 # Stylish Portfolio
 
-Welcome to the Stylish Portfolio project! This portfolio showcases a modern and stylish design, complete with smooth animations and scroll effects. Below you'll find information on how to set up and run the project, as well as an overview of its structure.
+A lightweight, responsive portfolio built with Vite + React (JSX) and Tailwind CSS. Uses plain CSS files for component styles and includes scroll reveal animations via custom hooks.
+
+## Pages / Sections
+
+- Home (Hero) — Intro, call-to-action and key links.
+- About — Short bio, skills and experience.
+- Projects — Featured project cards on the home page.
+- Full Projects — Dedicated page listing all projects (src/pages/FullProjectsPage.jsx).
+- Contact — Contact details / simple contact UI.
+- Shared components: Header, Footer, MainLayout and reusable UI pieces.
 
 ## Features
 
-- **Responsive Design**: The portfolio is designed to look great on all devices.
-- **Smooth Animations**: Enjoy smooth transitions and animations as you scroll through the portfolio.
-- **Easy Navigation**: The header component provides easy access to different sections of the portfolio.
-- **Project Showcase**: Highlight your projects with detailed descriptions and links.
+- Vite + React (JSX) starter
+- Tailwind CSS + plain CSS stylesheets
+- Scroll reveal / entrance animations (useScrollAnimation.js / useScrollReveal.js)
+- Responsive layout (mobile → desktop)
+- Project cards with links and images
+- Simple, easy-to-customize structure
 
-## Project Structure
-
-The project is organized as follows:
+## Project Structure (actual, trimmed)
 
 ```
 stylish-portfolio
+├── index.html
+├── package.json
 ├── public
-│   └── robots.txt
 ├── src
-│   ├── main.tsx
-│   ├── App.tsx
+│   ├── main.jsx
+│   ├── App.jsx
 │   ├── index.css
+│   ├── images
+│   │   ├── profile.jpeg
+│   │   ├── sitecoreImg.jpeg
+│   │   └── ...other images
 │   ├── components
-│   │   ├── Header.tsx
-│   │   ├── Hero.tsx
-│   │   ├── About.tsx
-│   │   ├── Projects.tsx
-│   │   ├── ProjectCard.tsx
-│   │   ├── Contact.tsx
-│   │   └── Footer.tsx
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Hero.jsx
+│   │   ├── About.jsx
+│   │   ├── Projects.jsx
+│   │   ├── ProjectCard.jsx
+│   │   ├── ProjectCard.css
+│   │   └── Contact.jsx
+│   ├── pages
+│   │   └── FullProjectsPage.jsx
 │   ├── layouts
-│   │   └── MainLayout.tsx
+│   │   ├── MainLayout.jsx
+│   │   └── MainLayout.css
 │   ├── hooks
-│   │   └── useScrollAnimation.ts
+│   │   ├── useScrollAnimation.js
+│   │   └── useScrollReveal.js
 │   ├── styles
 │   │   ├── variables.css
 │   │   ├── animations.css
-│   │   └── components.css
-│   ├── utils
-│   │   └── easing.ts
-│   └── types
-│       └── index.d.ts
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-├── tailwind.config.cjs
-├── postcss.config.cjs
-└── README.md
+│   │   ├── header.css
+│   │   ├── footer.css
+│   │   └── fullprojects.css
+│   └── utils
+└── vite.config.js
 ```
 
-## Getting Started
+Files/folders like .git, node_modules and macOS .DS_Store are excluded from the list above.
 
-To get started with the Stylish Portfolio project, follow these steps:
+## Quick Start
 
-1. **Clone the Repository**:
-   ```bash
-   git clone <repository-url>
-   cd stylish-portfolio
-   ```
+From the project root:
 
-2. **Install Dependencies**:
+1. Install dependencies
    ```bash
    npm install
    ```
 
-3. **Run the Development Server**:
+2. Run dev server
    ```bash
    npm run dev
    ```
+   Open the URL printed by Vite (commonly http://localhost:5173).
 
-4. **Open in Browser**:
-   Navigate to `http://localhost:3000` (or the port specified in your terminal) to view your portfolio.
+3. Build / preview
+   ```bash
+   npm run build
+   npm run preview
+   ```
 
-## Customization
+## Where to edit
 
-Feel free to customize the components and styles to match your personal branding. You can modify the following files for specific changes:
+- Content & layout: src/components (Hero.jsx, About.jsx, Projects.jsx, Contact.jsx)
+- All projects page: src/pages/FullProjectsPage.jsx
+- Layout wrapper: src/layouts/MainLayout.jsx
+- Styles: src/styles/*.css and component CSS files under src/components
+- Images: src/images
+- Scroll animations: src/hooks/useScrollAnimation.js and src/hooks/useScrollReveal.js
 
-- **Components**: Update the files in the `src/components` directory to change the content and layout of your portfolio.
-- **Styles**: Adjust the CSS in `src/styles` to change the appearance of your portfolio.
+## Scripts
+
+- npm run dev — start Vite dev server
+- npm run build — create production build
+- npm run preview — preview production build
+
+(Use package.json for any additional scripts.)
+
+## Contributing
+
+Small fixes and improvements welcome. Open a PR with a brief description and the changed files.
 
 ## License
 
-This project is open-source and available under the [MIT License](LICENSE).
+MIT — see LICENSE file (if present).
 
-## Acknowledgments
+## Contact
 
-Thank you for checking out the Stylish Portfolio project! Happy coding!
+Update src/components/Contact.jsx with your preferred email, links, or form endpoint.
